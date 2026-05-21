@@ -1,0 +1,31 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#081626"/>
+  <circle cx="180" cy="670" r="220" fill="#0EA5A4" fill-opacity="0.12"/>
+  <circle cx="1140" cy="80" r="200" fill="#F4B942" fill-opacity="0.12"/>
+  <rect x="42" y="42" width="250" height="636" rx="26" fill="#0E1C31" fill-opacity="0.88" stroke="#325977"/>
+  <rect x="330" y="42" width="908" height="96" rx="24" fill="#102131" fill-opacity="0.9" stroke="#325977"/>
+  <rect x="330" y="168" width="908" height="174" rx="24" fill="#102131" fill-opacity="0.9" stroke="#325977"/>
+  <rect x="330" y="370" width="286" height="246" rx="24" fill="#102131" fill-opacity="0.9" stroke="#325977"/>
+  <rect x="641" y="370" width="286" height="246" rx="24" fill="#102131" fill-opacity="0.9" stroke="#325977"/>
+  <rect x="952" y="370" width="286" height="246" rx="24" fill="#102131" fill-opacity="0.9" stroke="#325977"/>
+  <text x="88" y="98" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">NexaFort</text>
+  <text x="88" y="130" fill="#9EB7CA" font-family="Segoe UI, Arial, sans-serif" font-size="14">Secure Project Orbit</text>
+  <text x="370" y="100" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Overview Dashboard</text>
+  <text x="370" y="226" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Performance Pulse</text>
+  <rect x="370" y="254" width="210" height="12" rx="6" fill="#1C3047"/>
+  <rect x="370" y="254" width="162" height="12" rx="6" fill="#32D6C0"/>
+  <rect x="370" y="286" width="210" height="12" rx="6" fill="#1C3047"/>
+  <rect x="370" y="286" width="184" height="12" rx="6" fill="#F4B942"/>
+  <rect x="370" y="318" width="210" height="12" rx="6" fill="#1C3047"/>
+  <rect x="370" y="318" width="142" height="12" rx="6" fill="#32D6C0"/>
+  <text x="364" y="420" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Projects</text>
+  <text x="675" y="420" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Insights</text>
+  <text x="986" y="420" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Roadmap</text>
+  <rect x="364" y="448" width="218" height="18" rx="9" fill="#1C3047"/>
+  <rect x="364" y="482" width="182" height="18" rx="9" fill="#1C3047"/>
+  <rect x="675" y="448" width="96" height="132" rx="18" fill="#32D6C0" fill-opacity="0.82"/>
+  <rect x="789" y="418" width="96" height="162" rx="18" fill="#F4B942" fill-opacity="0.82"/>
+  <rect x="1100" y="466" width="98" height="16" rx="8" fill="#1C3047"/>
+  <rect x="986" y="448" width="92" height="16" rx="8" fill="#1C3047"/>
+  <rect x="986" y="500" width="212" height="16" rx="8" fill="#1C3047"/>
+</svg>

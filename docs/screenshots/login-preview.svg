@@ -1,0 +1,22 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#081626"/>
+  <circle cx="170" cy="120" r="180" fill="#0EA5A4" fill-opacity="0.18"/>
+  <circle cx="1090" cy="80" r="180" fill="#F4B942" fill-opacity="0.14"/>
+  <rect x="430" y="118" width="420" height="484" rx="28" fill="#0E1C31" fill-opacity="0.88" stroke="#325977"/>
+  <circle cx="640" cy="208" r="34" fill="url(#paint0_radial)"/>
+  <text x="640" y="282" fill="#ECF6FF" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">NexaFort Login</text>
+  <text x="640" y="314" fill="#9EB7CA" font-family="Segoe UI, Arial, sans-serif" font-size="16" text-anchor="middle">Secure workspace access</text>
+  <rect x="500" y="372" width="280" height="54" rx="14" fill="#091427" stroke="#325977"/>
+  <rect x="500" y="444" width="280" height="54" rx="14" fill="#091427" stroke="#325977"/>
+  <rect x="500" y="526" width="280" height="54" rx="14" fill="#32D6C0"/>
+  <text x="640" y="405" fill="#6D8BA2" font-family="Segoe UI, Arial, sans-serif" font-size="15" text-anchor="middle">Email</text>
+  <text x="640" y="477" fill="#6D8BA2" font-family="Segoe UI, Arial, sans-serif" font-size="15" text-anchor="middle">Password</text>
+  <text x="640" y="560" fill="#00141E" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Sign In</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(630 200) rotate(50) scale(70)">
+      <stop stop-color="#F8FFFD"/>
+      <stop offset="0.55" stop-color="#72FFD3"/>
+      <stop offset="1" stop-color="#1ABDA7"/>
+    </radialGradient>
+  </defs>
+</svg>
