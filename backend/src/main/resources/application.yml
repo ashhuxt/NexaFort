@@ -6,9 +6,10 @@ spring:
     name: nexafort-backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/nexafort
-    username: postgres
-    password: 'postgres'
+    # Use environment variables provided by Render, falling back to local defaults
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:nexafort}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -33,11 +34,13 @@ spring:
 
 app:
   jwt:
+    # Always keep your secret as an environment variable in production!
     secret: ${JWT_SECRET:nexafort-super-secret-key-change-in-production-minimum-256-bits}
     access-token-expiration: 900000       # 15 minutes
     refresh-token-expiration: 604800000   # 7 days
 
   cors:
+    # Use the variable provided by Render or default to local React dev server
     allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173}
 
 springdoc:
