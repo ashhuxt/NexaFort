@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: nexafort-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: nexafort-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: nexafort-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: nexafort-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: nexafort-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: nexafort-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: REDIS_HOST
+        value: your-redis-host
+      - key: ALLOWED_ORIGINS
+        value: https://your-vercel-app.vercel.app
+
+databases:
+  - name: nexafort-db
+    plan: free
