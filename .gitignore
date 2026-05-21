@@ -1,25 +1,31 @@
-# Environment
-.env
-*.env
-
-# Maven
-target/
+# --- Backend (Maven/Spring Boot) ---
+backend/target/
+backend/.m2/
 *.jar
 *.war
+*.log
 
-# IDE
+# --- Frontend (Node/Vite) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env
+frontend/.env.local
+
+# --- Global Environment ---
+.env
+.env.local
+.env.*.local
+*.log
+
+# --- IDE & Editors ---
 .idea/
-*.iml
 .vscode/
-.classpath
-.project
+*.iml
+*.classpath
+*.project
 .settings/
 
-# Node / Frontend
-node_modules/
-dist/
-.vite/
-
-# OS
+# --- OS Specific ---
 .DS_Store
 Thumbs.db
