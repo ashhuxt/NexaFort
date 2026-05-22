@@ -37,11 +37,13 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // Publicly accessible paths
+                        // Publicly accessible auth endpoints
                         .requestMatchers("/api/v1/auth/**").permitAll()
+                        // Monitoring
                         .requestMatchers("/actuator/health").permitAll()
 
-                        // Permit all Swagger/OpenAPI documentation paths
+                        // Explicitly permit ALL paths required by Swagger UI and OpenAPI docs
+                        // We use /** to ensure all nested assets (JS/CSS) are included
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
 
                         // Protected paths
