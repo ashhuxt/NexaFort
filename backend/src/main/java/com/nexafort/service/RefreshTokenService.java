@@ -1,4 +1,5 @@
 package com.nexafort.service;
+
 import com.nexafort.entity.*;
 import com.nexafort.exception.ApiException;
 import com.nexafort.repository.RefreshTokenRepository;
@@ -21,18 +22,26 @@ public class RefreshTokenService {
 
     @Transactional
     public RefreshToken createRefreshToken(User user) {
+        // 1. Explicitly remove existing tokens for this user
         refreshTokenRepository.deleteByUserId(user.getId());
+
+        // 2. Force a database flush to ensure the DELETE happens BEFORE the INSERT
+        refreshTokenRepository.flush();
+
+        // 3. Create and save the new token
         RefreshToken token = RefreshToken.builder()
-            .token(UUID.randomUUID().toString())
-            .user(user)
-            .expiresAt(LocalDateTime.now().plusSeconds(refreshTokenExpiration / 1000))
-            .build();
+                .token(UUID.randomUUID().toString())
+                .user(user)
+                .expiresAt(LocalDateTime.now().plusSeconds(refreshTokenExpiration / 1000))
+                .build();
+
         return refreshTokenRepository.save(token);
     }
 
+    @Transactional(readOnly = true)
     public RefreshToken verifyExpiration(RefreshToken token) {
         if (token.isExpired()) {
-            refreshTokenRepository.delete(token);
+            // Note: Deletion here would require a separate @Transactional method or an update to the entity state
             throw new ApiException("Refresh token has expired. Please login again.", HttpStatus.UNAUTHORIZED);
         }
         return token;
@@ -40,6 +49,6 @@ public class RefreshTokenService {
 
     public RefreshToken findByToken(String token) {
         return refreshTokenRepository.findByToken(token)
-            .orElseThrow(() -> new ApiException("Invalid refresh token", HttpStatus.UNAUTHORIZED));
+                .orElseThrow(() -> new ApiException("Invalid refresh token", HttpStatus.UNAUTHORIZED));
     }
 }
