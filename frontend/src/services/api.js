@@ -1,7 +1,13 @@
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
-const api = axios.create({ baseURL: '/api/v1', timeout: 10000 })
+// Use environment variable for the backend URL, fallback to local proxy if undefined
+const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api/v1'
+
+const api = axios.create({
+  baseURL: baseURL,
+  timeout: 10000
+})
 
 api.interceptors.request.use(config => {
   const token = localStorage.getItem('nexafort_token')
@@ -17,7 +23,8 @@ api.interceptors.response.use(
       original._retry = true
       try {
         const refresh = localStorage.getItem('nexafort_refresh')
-        const res = await axios.post('/api/v1/auth/refresh', { refreshToken: refresh })
+        // Use the absolute path or the base URL for the refresh call
+        const res = await axios.post(`${baseURL}/auth/refresh`, { refreshToken: refresh })
         const { accessToken } = res.data.data
         localStorage.setItem('nexafort_token', accessToken)
         original.headers.Authorization = `Bearer ${accessToken}`
