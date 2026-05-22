@@ -42,12 +42,17 @@ public class SecurityConfig {
                         // Monitoring
                         .requestMatchers("/actuator/health").permitAll()
 
-                        // Explicitly permit ALL paths required by Swagger UI and OpenAPI docs
-                        // We use /** to ensure all nested assets (JS/CSS) are included
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+                        // Explicitly permit all Swagger UI assets and generated API docs endpoints.
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/swagger-resources/**",
+                                "/v3/api-docs/**",
+                                "/api-docs/**"
+                        ).permitAll()
 
                         // Protected paths
-                        .requestMatchers(HttpMethod.DELETE, "/api/v1/projects/**").hasAnyRole("ADMIN", "OWNER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/projects/**").hasRole("ADMIN")
                         .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
