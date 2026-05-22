@@ -55,6 +55,9 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // 3. Protected administrative and project paths
+                        .requestMatchers(HttpMethod.POST, "/api/v1/projects/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/projects/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/projects/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/v1/projects/**").hasRole("ADMIN")
                         .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
 

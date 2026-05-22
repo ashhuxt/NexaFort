@@ -17,7 +17,9 @@ export function AuthProvider({ children }) {
     const res = await api.post('/auth/login', { email, password })
     const { accessToken, refreshToken, user: u } = res.data.data
     localStorage.setItem('nexafort_token',   accessToken)
+    localStorage.setItem('accessToken',      accessToken)
     localStorage.setItem('nexafort_refresh', refreshToken)
+    localStorage.setItem('refreshToken',     refreshToken)
     localStorage.setItem('nexafort_user',    JSON.stringify(u))
     setUser(u)
     return u
@@ -27,7 +29,9 @@ export function AuthProvider({ children }) {
     const res = await api.post('/auth/register', { name, email, password })
     const { accessToken, refreshToken, user: u } = res.data.data
     localStorage.setItem('nexafort_token',   accessToken)
+    localStorage.setItem('accessToken',      accessToken)
     localStorage.setItem('nexafort_refresh', refreshToken)
+    localStorage.setItem('refreshToken',     refreshToken)
     localStorage.setItem('nexafort_user',    JSON.stringify(u))
     setUser(u)
     return u

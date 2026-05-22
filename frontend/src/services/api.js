@@ -9,8 +9,14 @@ const api = axios.create({
   timeout: 10000
 })
 
+const getAccessToken = () =>
+  localStorage.getItem('nexafort_token') || localStorage.getItem('accessToken')
+
+const getRefreshToken = () =>
+  localStorage.getItem('nexafort_refresh') || localStorage.getItem('refreshToken')
+
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem('nexafort_token')
+  const token = getAccessToken()
   if (token) config.headers.Authorization = `Bearer ${token}`
   return config
 })
@@ -22,11 +28,12 @@ api.interceptors.response.use(
     if (err.response?.status === 401 && !original._retry) {
       original._retry = true
       try {
-        const refresh = localStorage.getItem('nexafort_refresh')
+        const refresh = getRefreshToken()
         // Use the absolute path or the base URL for the refresh call
         const res = await axios.post(`${baseURL}/auth/refresh`, { refreshToken: refresh })
         const { accessToken } = res.data.data
         localStorage.setItem('nexafort_token', accessToken)
+        localStorage.setItem('accessToken', accessToken)
         original.headers.Authorization = `Bearer ${accessToken}`
         return api(original)
       } catch {
