@@ -2,10 +2,10 @@
 <div align="center">
 
 # 🛡️ NexaFort
-### Enterprise Multi-Role Project Workspace Platform
 
-### ⚡ Production-Grade Full Stack Infrastructure System
-### Built with Java 21 • Spring Boot 3 • PostgreSQL • Redis • React • Docker
+### Secure Multi-Role Project Workspace System
+
+### Java 21 • Spring Boot 3 • PostgreSQL • Redis • React • Docker
 
 <br>
 
@@ -19,86 +19,26 @@
 
 <br><br>
 
-> **A production-oriented enterprise workspace system engineered with modern backend architecture, scalable infrastructure patterns, and secure multi-role access control.**
+> Full-stack workspace management system focused on secure API design, scalable backend architecture, and production-style engineering patterns.
 
 </div>
 
 ---
 
-# 🧠 Engineering Context
+# 🧠 Overview
 
-NexaFort was designed as a **real-world backend infrastructure system**, not a traditional CRUD portfolio application.
+NexaFort is a full-stack project workspace platform designed using modern backend engineering principles instead of basic CRUD-only architecture.
 
-The project focuses on:
+The system includes:
 
-- Enterprise authentication flows
-- Role-based authorization systems
-- Infrastructure-aware backend engineering
-- API scalability and observability
-- Distributed caching strategies
-- Production deployment readiness
-
-The architecture intentionally mirrors patterns commonly found in internal enterprise products and SaaS management systems.
-
----
-
-# 🚀 Executive Overview
-
-Modern enterprise workspace platforms require solving significantly more than basic CRUD operations.
-
-Real systems must address:
-
-- Secure authentication lifecycles
-- Permission isolation
-- Stateless scalability
-- Infrastructure orchestration
-- Request tracing
-- Caching efficiency
-- Frontend state synchronization
-- Deployment portability
-
-NexaFort addresses these challenges through a modular full-stack architecture combining:
-
-- Spring Boot backend infrastructure
-- JWT security pipelines
+- JWT authentication with refresh tokens
+- Role-based access control
 - Redis caching
-- PostgreSQL persistence
-- Dockerized deployment
-- Modern React frontend systems
+- Request tracing and audit logging
+- Dockerized infrastructure
+- Modern React frontend integration
 
----
-
-# 🎯 Problem Statement
-
-Many portfolio projects demonstrate only superficial functionality:
-
-❌ Weak authentication flows  
-❌ No refresh token lifecycle  
-❌ No scalable architecture  
-❌ No caching strategy  
-❌ No security hardening  
-❌ No deployment orchestration  
-❌ No infrastructure thinking
-
-As a result, they fail to represent real production engineering.
-
----
-
-# 💡 Solution: Production-Oriented Workspace Platform
-
-NexaFort introduces a modular architecture inspired by enterprise backend systems.
-
-The platform provides:
-
-✅ Stateless JWT authentication  
-✅ Refresh token lifecycle management  
-✅ Role-based access control  
-✅ Secure API boundaries  
-✅ Redis caching  
-✅ Request tracing  
-✅ Audit logging  
-✅ Dockerized infrastructure  
-✅ Premium frontend experience
+The project focuses on building a modular and maintainable architecture that reflects real-world backend development practices.
 
 ---
 
@@ -111,139 +51,40 @@ Spring Boot REST API
         ↓                ↓
 PostgreSQL          Redis Cache
         ↓
-Security + Audit + Observability Layer
+Security + Audit Logging Layer
 ````
 
 ---
 
-# ⚙️ Core Backend Features
+# ✨ Core Features
 
-## 🔐 JWT Authentication Infrastructure
+## Backend
 
-* Access token + refresh token lifecycle
+* JWT authentication with refresh tokens
 * Stateless Spring Security configuration
-* Secure token validation pipelines
+* Role-based access control (`ROLE_USER`, `ROLE_ADMIN`)
+* Project CRUD operations
+* Pagination, sorting, and filtering
+* Redis caching with cache eviction
+* Request correlation ID logging
+* Audit logging
+* Rate limiting using Bucket4j
+* DTO validation and global exception handling
+* Swagger/OpenAPI documentation
+* Input sanitization through `InputSanitizer.java`
 
 ---
 
-## 🛡️ Role-Based Access Control (RBAC)
+## Frontend
 
-Supports:
-
-* `ROLE_USER`
-* `ROLE_ADMIN`
-
-Authorization is enforced at API boundary level using Spring Security.
-
----
-
-## 📦 Project Workspace Engine
-
-Features:
-
-* CRUD operations
-* Pagination
-* Sorting
-* Status filtering
-* Priority filtering
-
-Designed for scalable API consumption.
-
----
-
-## ⚡ Redis Caching Layer
-
-Implements:
-
-* Read optimization
-* Cache eviction on writes
-* Reduced database load
-
-Improving backend throughput and response times.
-
----
-
-## 📋 Admin Operations Layer
-
-Administrative capabilities include:
-
-* Viewing all users
-* Updating user roles
-* Removing users
-* Inspecting all projects
-
----
-
-## 📊 Request Tracing & Audit Logging
-
-Includes:
-
-* Correlation ID tracing
-* Audit event logging
-* Async logging architecture
-
-Enhancing production observability and debugging.
-
----
-
-## 🚦 Authentication Rate Limiting
-
-Authentication endpoints protected via:
-
-* Bucket4j token bucket strategy
-
-Reducing brute-force attack vectors.
-
----
-
-## 🧼 Input Sanitization Layer
-
-Implemented through:
-
-```text
-InputSanitizer.java
-```
-
-Protecting persistence layers against unsafe payload injection.
-
----
-
-# 🎨 Frontend Features
-
-## 🌗 Dark & Light Themes
-
-Adaptive theme support with responsive rendering.
-
----
-
-## 🔒 Protected Route System
-
-Supports:
-
-* JWT persistence
-* Automatic token refresh
-* Auth-aware route protection
-
----
-
-## 📈 Analytics Dashboard
-
-Built using:
-
-* Recharts
-* Dynamic visualizations
-* Responsive dashboard layouts
-
----
-
-## ✨ Premium UI Experience
-
-Frontend includes:
-
-* Glassmorphism-inspired UI
+* Protected routes with token persistence
+* Login and registration pages
+* Dashboard and analytics views
+* Dark/light theme support
 * Framer Motion transitions
+* Responsive UI using Tailwind CSS
 * Route-based code splitting
-* Responsive layouts
+* Recharts analytics dashboard
 
 ---
 
@@ -294,8 +135,6 @@ nexafort-complete/
 
 ---
 
-# NexaFort
-
 # 📸 Screenshots
 
 <div align="center">
@@ -328,7 +167,7 @@ nexafort-complete/
 
 # 📡 API Overview
 
-## 🔐 Authentication APIs
+## Authentication APIs
 
 ```http
 POST /api/v1/auth/register
@@ -338,7 +177,7 @@ POST /api/v1/auth/refresh
 
 ---
 
-## 📦 Project APIs
+## Project APIs
 
 ```http
 POST   /api/v1/projects
@@ -356,7 +195,7 @@ Supports:
 
 ---
 
-## 👑 Admin APIs
+## Admin APIs
 
 ```http
 GET    /api/v1/admin/users
@@ -367,138 +206,84 @@ GET    /api/v1/admin/projects
 
 ---
 
-# 🔒 Security Engineering
-
-NexaFort implements multiple production-grade security layers.
-
-## ✅ Credential Security
+# 🔒 Security
 
 * BCrypt password hashing
-* Secure credential validation
-
----
-
-## ✅ Token Lifecycle Security
-
-* Short-lived JWT access tokens
-* Refresh token persistence
-* Stateless auth architecture
-
----
-
-## ✅ Brute Force Protection
-
-Rate-limited authentication endpoints using Bucket4j.
-
----
-
-## ✅ Secure Persistence Layer
-
-* DTO validation
-* Input sanitization
+* JWT access + refresh token lifecycle
+* Bucket4j rate limiting
+* DTO validation and input sanitization
 * Parameterized JPA queries
-
-Reducing SQL injection risk.
-
----
-
-## ✅ Controlled CORS Policies
-
-Environment-configurable origin restrictions.
+* Configurable CORS policies
 
 ---
 
-# ⚡ Scalability & Infrastructure Design
+# ⚡ Scalability Notes
 
-## 🚀 Stateless Authentication
-
-Supports:
-
-* Horizontal scaling
-* Multi-instance deployments
+* Stateless JWT authentication supports horizontal scaling
+* Redis reduces repeated database reads
+* Async audit logging improves throughput
+* Modular package boundaries support future service extraction
 
 ---
 
-## ⚡ Redis Optimization
+# ⚠️ Current Limitations
 
-Caching reduces repeated database reads and improves response latency.
+While NexaFort demonstrates strong backend architecture fundamentals, several limitations still exist:
 
----
-
-## 🧩 Modular Package Architecture
-
-Backend package boundaries support:
-
-* Future microservice extraction
-* Independent scaling
-* Easier maintainability
-
----
-
-## 📋 Async Audit Logging
-
-Improves request throughput while preserving observability.
-
----
-
-# ⚠️ Engineering Limitations & Research Direction
-
-While NexaFort demonstrates strong production-oriented architecture, several important system challenges remain:
-
-* Current deployment is monolithic, not microservice-based
-* No distributed event streaming implemented
-* No real-time collaborative synchronization layer
+* Current deployment is monolithic
+* No real-time collaboration layer
+* No distributed event streaming
 * Limited observability beyond request tracing
-* No distributed authorization gateway architecture
+* No Kubernetes orchestration
 
-These limitations create future opportunities involving:
+These areas provide future opportunities for exploring:
 
 * Event-driven systems
-* Real-time infrastructure
-* Distributed backend orchestration
-* Cloud-native deployments
+* Real-time synchronization
+* Distributed architectures
+* Cloud-native infrastructure
 
 ---
 
 # 🚀 Future Roadmap
 
-## 🌐 Real-Time Collaboration
+## Real-Time Collaboration
 
 * WebSocket synchronization
-* Multi-user project editing
 * Live workspace updates
+* Multi-user editing
 
 ---
 
-## ☁️ Kubernetes Deployment
+## Infrastructure Expansion
 
-* Container orchestration
+* Kubernetes deployment
 * Horizontal autoscaling
-* Infrastructure resilience
+* Container orchestration
 
 ---
 
-## 📡 Event-Driven Architecture
+## Event-Driven Systems
 
 * Kafka integration
 * Distributed messaging
-* Async event pipelines
+* Async processing pipelines
 
 ---
 
-## 🔍 Advanced Observability
+## Advanced Observability
 
 * OpenTelemetry integration
 * Metrics dashboards
-* Distributed tracing systems
+* Distributed tracing
 
 ---
 
-## 🤖 AI Workspace Intelligence
+## AI-Assisted Features
 
 * AI-generated project summaries
-* Smart workflow insights
-* Automated productivity suggestions
+* Workflow insights
+* Productivity recommendations
 
 ---
 
@@ -555,7 +340,7 @@ npm run dev
 
 # 🚀 Deployment
 
-Deployment configurations included for:
+Deployment configuration included for:
 
 * Render
 * Vercel
@@ -578,26 +363,22 @@ Frontend → https://nexa-fort.vercel.app
 
 # 📮 Postman Collection
 
-Ready-to-import collection:
-
 ```text
 postman/NexaFort.postman_collection.json
 ```
 
 ---
 
-# 🌟 Why This Project Stands Out
+# 🌟 Engineering Focus
 
-Unlike basic CRUD portfolio systems, NexaFort demonstrates:
+NexaFort focuses on:
 
-✅ Enterprise backend architecture
-✅ Secure authentication engineering
-✅ Infrastructure-aware development
-✅ Production deployment readiness
-✅ Full-stack scalability thinking
-✅ Security-focused API design
-✅ Modern frontend architecture
-✅ Dockerized infrastructure workflows
+* Secure backend architecture
+* Modular API design
+* Authentication and authorization systems
+* Scalable infrastructure patterns
+* Modern frontend integration
+* Production-oriented development practices
 
 ---
 
@@ -605,25 +386,20 @@ Unlike basic CRUD portfolio systems, NexaFort demonstrates:
 
 ## Ashish Patel
 
-Focused on building:
+Interested in building:
 
-* Enterprise Backend Systems
-* AI Infrastructure Platforms
-* Scalable Full-Stack Architectures
-* Production-Oriented Engineering Solutions
+* Backend Systems
+* AI Infrastructure
+* Distributed Applications
+* Scalable Full-Stack Platforms
 
 ---
 
 <div align="center">
 
-# 🌟 Final Statement
+# 🌟 Final Note
 
-> **NexaFort is not a simple CRUD application.**
-> It is a production-oriented enterprise workspace platform engineered using real-world backend architecture principles.
-
-<br>
-
-# 🛡️ NexaFort Engineers Reliability at Scale.
+NexaFort is a backend-focused workspace management platform built to explore secure API design, modular architecture, and scalable engineering practices using modern Java infrastructure.
 
 </div>
 
