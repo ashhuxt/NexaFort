@@ -41,10 +41,12 @@ export default function Register() {
             { key: 'password', icon: Lock, type: 'password', label: 'Password', placeholder: 'Minimum 8 chars' },
           ].map(({ key, icon: Icon, type, label, placeholder }) => (
             <div key={key}>
-              <label className="text-sm text-slate-300 mb-1.5 block">{label}</label>
+              <label htmlFor={`register-${key}`} className="text-sm text-slate-300 mb-1.5 block">{label}</label>
               <div className="relative">
                 <Icon className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
                 <input
+                  id={`register-${key}`}
+                  name={key}
                   className="input pl-10"
                   type={type}
                   placeholder={placeholder}

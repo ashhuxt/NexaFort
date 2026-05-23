@@ -45,13 +45,23 @@ export default function ProjectModal({ isOpen, onClose, onSubmit, initial }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-sm text-slate-300 mb-1 block">Title</label>
-            <input className="input" placeholder="Project title" value={form.title} onChange={set('title')} required />
+            <label htmlFor="project-title" className="text-sm text-slate-300 mb-1 block">Title</label>
+            <input
+              id="project-title"
+              name="title"
+              className="input"
+              placeholder="Project title"
+              value={form.title}
+              onChange={set('title')}
+              required
+            />
           </div>
 
           <div>
-            <label className="text-sm text-slate-300 mb-1 block">Description</label>
+            <label htmlFor="project-description" className="text-sm text-slate-300 mb-1 block">Description</label>
             <textarea
+              id="project-description"
+              name="description"
               className="input resize-none"
               rows={3}
               placeholder="Describe your project goals"
@@ -62,14 +72,14 @@ export default function ProjectModal({ isOpen, onClose, onSubmit, initial }) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-sm text-slate-300 mb-1 block">Status</label>
-              <select className="input" value={form.status} onChange={set('status')}>
+              <label htmlFor="project-status" className="text-sm text-slate-300 mb-1 block">Status</label>
+              <select id="project-status" name="status" className="input" value={form.status} onChange={set('status')}>
                 {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-sm text-slate-300 mb-1 block">Priority</label>
-              <select className="input" value={form.priority} onChange={set('priority')}>
+              <label htmlFor="project-priority" className="text-sm text-slate-300 mb-1 block">Priority</label>
+              <select id="project-priority" name="priority" className="input" value={form.priority} onChange={set('priority')}>
                 {PRIORITIES.map((p) => <option key={p} value={p}>{p}</option>)}
               </select>
             </div>

@@ -6,17 +6,37 @@ const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api/
 
 const api = axios.create({
   baseURL: baseURL,
-  timeout: 10000
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  },
 })
 
+const normalizeToken = (value) => {
+  if (!value) return null
+  if (value === '[object Object]') return null
+
+  const trimmed = value.trim()
+  const unwrapped = trimmed.startsWith('"') && trimmed.endsWith('"')
+    ? trimmed.slice(1, -1)
+    : trimmed
+
+  return unwrapped.replace(/^Bearer\s+/i, '')
+}
+
 const getAccessToken = () =>
-  localStorage.getItem('nexafort_token') || localStorage.getItem('accessToken')
+  normalizeToken(localStorage.getItem('nexafort_token') || localStorage.getItem('accessToken'))
 
 const getRefreshToken = () =>
-  localStorage.getItem('nexafort_refresh') || localStorage.getItem('refreshToken')
+  normalizeToken(localStorage.getItem('nexafort_refresh') || localStorage.getItem('refreshToken'))
 
 api.interceptors.request.use(config => {
   const token = getAccessToken()
+  if (!config.headers['Content-Type']) {
+    config.headers['Content-Type'] = 'application/json'
+  }
+  config.headers.Accept = 'application/json'
   if (token) config.headers.Authorization = `Bearer ${token}`
   return config
 })
@@ -31,9 +51,13 @@ api.interceptors.response.use(
         const refresh = getRefreshToken()
         // Use the absolute path or the base URL for the refresh call
         const res = await axios.post(`${baseURL}/auth/refresh`, { refreshToken: refresh })
-        const { accessToken } = res.data.data
+        const { accessToken, refreshToken } = res.data.data
         localStorage.setItem('nexafort_token', accessToken)
         localStorage.setItem('accessToken', accessToken)
+        if (refreshToken) {
+          localStorage.setItem('nexafort_refresh', refreshToken)
+          localStorage.setItem('refreshToken', refreshToken)
+        }
         original.headers.Authorization = `Bearer ${accessToken}`
         return api(original)
       } catch {

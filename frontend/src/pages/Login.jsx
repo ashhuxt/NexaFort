@@ -34,10 +34,12 @@ export default function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-sm text-slate-300 mb-1.5 block">Email</label>
+            <label htmlFor="login-email" className="text-sm text-slate-300 mb-1.5 block">Email</label>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
               <input
+                id="login-email"
+                name="email"
                 className="input pl-10"
                 type="email"
                 placeholder="you@company.com"
@@ -49,10 +51,12 @@ export default function Login() {
           </div>
 
           <div>
-            <label className="text-sm text-slate-300 mb-1.5 block">Password</label>
+            <label htmlFor="login-password" className="text-sm text-slate-300 mb-1.5 block">Password</label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
               <input
+                id="login-password"
+                name="password"
                 className="input pl-10"
                 type="password"
                 placeholder="Your password"

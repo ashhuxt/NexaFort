@@ -29,8 +29,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain) throws ServletException, IOException {
 
+        final String path = request.getRequestURI();
         final String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            if (path.startsWith("/api/v1/projects") || path.startsWith("/api/v1/admin")) {
+                log.debug("Missing or malformed Authorization header for {} {}", request.getMethod(), path);
+            }
             filterChain.doFilter(request, response);
             return;
         }
@@ -48,10 +52,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                     log.debug("Authenticated user: {}", userEmail);
+                } else {
+                    log.warn("Rejected invalid JWT for {} {}", request.getMethod(), path);
                 }
             }
         } catch (Exception e) {
-            log.error("JWT authentication failed: {}", e.getMessage());
+            log.error("JWT authentication failed for {} {}: {}", request.getMethod(), path, e.getMessage());
         }
 
         filterChain.doFilter(request, response);
