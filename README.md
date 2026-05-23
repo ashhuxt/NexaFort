@@ -1,10 +1,10 @@
 
 <div align="center">
 
-# 🛡️ NexaFort  
+# 🛡️ NexaFort
 ### Enterprise Multi-Role Project Workspace Platform
 
-### ⚡ Production-Grade Full Stack Infrastructure System  
+### ⚡ Production-Grade Full Stack Infrastructure System
 ### Built with Java 21 • Spring Boot 3 • PostgreSQL • Redis • React • Docker
 
 <br>
@@ -31,12 +31,12 @@ NexaFort was designed as a **real-world backend infrastructure system**, not a t
 
 The project focuses on:
 
-- Enterprise authentication flows  
-- Role-based authorization systems  
-- Infrastructure-aware backend engineering  
-- API scalability and observability  
-- Distributed caching strategies  
-- Production deployment readiness  
+- Enterprise authentication flows
+- Role-based authorization systems
+- Infrastructure-aware backend engineering
+- API scalability and observability
+- Distributed caching strategies
+- Production deployment readiness
 
 The architecture intentionally mirrors patterns commonly found in internal enterprise products and SaaS management systems.
 
@@ -48,23 +48,23 @@ Modern enterprise workspace platforms require solving significantly more than ba
 
 Real systems must address:
 
-- Secure authentication lifecycles  
-- Permission isolation  
-- Stateless scalability  
-- Infrastructure orchestration  
-- Request tracing  
-- Caching efficiency  
-- Frontend state synchronization  
-- Deployment portability  
+- Secure authentication lifecycles
+- Permission isolation
+- Stateless scalability
+- Infrastructure orchestration
+- Request tracing
+- Caching efficiency
+- Frontend state synchronization
+- Deployment portability
 
 NexaFort addresses these challenges through a modular full-stack architecture combining:
 
-- Spring Boot backend infrastructure  
-- JWT security pipelines  
-- Redis caching  
-- PostgreSQL persistence  
-- Dockerized deployment  
-- Modern React frontend systems  
+- Spring Boot backend infrastructure
+- JWT security pipelines
+- Redis caching
+- PostgreSQL persistence
+- Dockerized deployment
+- Modern React frontend systems
 
 ---
 
@@ -78,7 +78,7 @@ Many portfolio projects demonstrate only superficial functionality:
 ❌ No caching strategy  
 ❌ No security hardening  
 ❌ No deployment orchestration  
-❌ No infrastructure thinking  
+❌ No infrastructure thinking
 
 As a result, they fail to represent real production engineering.
 
@@ -98,7 +98,7 @@ The platform provides:
 ✅ Request tracing  
 ✅ Audit logging  
 ✅ Dockerized infrastructure  
-✅ Premium frontend experience  
+✅ Premium frontend experience
 
 ---
 
@@ -294,14 +294,35 @@ nexafort-complete/
 
 ---
 
+# NexaFort
+
 # 📸 Screenshots
 
-Included preview assets:
+<div align="center">
 
-* Login Dashboard
-* Analytics Workspace
-* Project Management View
-* Admin Operations Panel
+## 🔐 Login Dashboard
+
+<img src="./docs/screenshots/login-preview.png" width="90%" />
+
+---
+
+## 📊 Analytics Workspace
+
+<img src="./docs/screenshots/dashboard-preview.png" width="90%" />
+
+---
+
+## 📁 Project Management View
+
+<img src="./docs/screenshots/projects-preview.png" width="90%" />
+
+---
+
+## 👑 Admin Operations Panel
+
+<img src="./docs/screenshots/admin-preview.png" width="90%" />
+
+</div>
 
 ---
 
