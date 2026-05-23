@@ -28,7 +28,7 @@ spring:
       password: ${REDIS_PASSWORD:}
 
   cache:
-    type: redis
+    type: ${CACHE_TYPE:simple}
     redis:
       time-to-live: 600000   # 10 minutes
 

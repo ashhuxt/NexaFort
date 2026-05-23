@@ -50,6 +50,7 @@ services:
       DB_PASSWORD: postgres
       REDIS_HOST: redis
       REDIS_PORT: 6379
+      CACHE_TYPE: redis
       JWT_SECRET: ${JWT_SECRET:-nexafort-change-this-secret-in-production}
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:5173}
     depends_on:

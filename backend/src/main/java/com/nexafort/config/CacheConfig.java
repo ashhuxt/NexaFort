@@ -1,5 +1,8 @@
 package com.nexafort.config;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.*;
 import org.springframework.data.redis.cache.*;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -15,6 +18,7 @@ public class CacheConfig {
     public static final String USERS_CACHE    = "users";
 
     @Bean
+    @ConditionalOnProperty(name = "spring.cache.type", havingValue = "redis")
     public RedisCacheManager cacheManager(RedisConnectionFactory factory) {
         RedisCacheConfiguration defaultConfig = RedisCacheConfiguration.defaultCacheConfig()
             .entryTtl(Duration.ofMinutes(10))
@@ -29,5 +33,11 @@ public class CacheConfig {
             .withCacheConfiguration(PROJECT_CACHE,
                 defaultConfig.entryTtl(Duration.ofMinutes(10)))
             .build();
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "spring.cache.type", havingValue = "simple", matchIfMissing = true)
+    public CacheManager simpleCacheManager() {
+        return new ConcurrentMapCacheManager(PROJECTS_CACHE, PROJECT_CACHE, USERS_CACHE);
     }
 }

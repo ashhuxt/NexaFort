@@ -27,8 +27,8 @@ services:
           property: password
       - key: JWT_SECRET
         generateValue: true
-      - key: REDIS_HOST
-        value: your-redis-host
+      - key: CACHE_TYPE
+        value: simple
       - key: ALLOWED_ORIGINS
         value: https://your-vercel-app.vercel.app
 
